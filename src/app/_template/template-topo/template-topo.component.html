@@ -1,1 +1,17 @@
-<p>template-topo works!</p>
+<div class="topo" [class.done]="ToPo$.status">
+  <div class="topo-content">
+    <div class="handle">
+      <img src="./assets/svg/drag.svg" width="120" >
+    </div>
+    <div class="topo-conteng-checkt">
+      <img *ngIf="!ToPo$.status" (click)="changeCheck($event)"  src="./assets/svg/checkbox-empty.svg" width="30" height="auto">
+      <img *ngIf="ToPo$.status"  (click)="changeCheck($event)"  src="./assets/svg/checkbox-done.svg" width="30" height="auto">
+    </div>
+    <div class="topo-content-titel">
+      <input (blur)="changeLabel($event)" type="text" [(ngModel)]="ToPo$.label" placeholder="Name der Aufgabe">
+    </div>
+  </div>
+  <div class="delete" (click)="deleteToPo($event)">
+    <span>Löschen</span>
+  </div>
+</div>

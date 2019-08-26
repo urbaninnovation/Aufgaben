@@ -1,2 +1,6 @@
-export interface Eventping {
+import { ToPo } from '../_interface/todo'
+
+export interface EventPing {
+    label: string;
+    object: ToPo;
 }

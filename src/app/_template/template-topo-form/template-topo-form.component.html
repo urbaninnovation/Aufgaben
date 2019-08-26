@@ -1,8 +1,8 @@
 <div class="topo-form">
   <div class="topo-content">
-    <input type="text" placeholder="Name des TODO Punktes">
+    <input type="text" (keyup.enter)="createToPo($event)" [(ngModel)]="ToPo$.label" placeholder="Name des TODO Punktes">
   </div>
-  <div class="create" >
+  <div class="create"  (click)="createToPo($event)">
     <span>Erstellen</span>
   </div>
 </div>

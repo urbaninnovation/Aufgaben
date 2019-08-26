@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { PageListComponent } from './page-list/page-list.component';
 import { TemplateTopoComponent } from './_template/template-topo/template-topo.component';
 import { TemplateTopoFormComponent } from './_template/template-topo-form/template-topo-form.component';
 import { TemplateHeaderComponent } from './_template/template-header/template-header.component';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { TemplateHeaderComponent } from './_template/template-header/template-he
     TemplateHeaderComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
