@@ -3,7 +3,7 @@
     <div class="handle">
       <img src="./assets/svg/drag.svg" width="120" >
     </div>
-    <div class="topo-conteng-checkt">
+    <div class="topo-content-check">
       <img *ngIf="!ToPo$.status" (click)="changeCheck($event)"  src="./assets/svg/checkbox-empty.svg" width="30" height="auto">
       <img *ngIf="ToPo$.status"  (click)="changeCheck($event)"  src="./assets/svg/checkbox-done.svg" width="30" height="auto">
     </div>

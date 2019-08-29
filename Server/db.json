@@ -1,0 +1,22 @@
+{
+  "todos": [
+    {
+      "id": 0,
+      "label": "Webseite erstellen",
+      "status": false,
+      "position": 1
+    },
+    {
+      "id": 1,
+      "label": "Server erstellen",
+      "status": false,
+      "position": 2
+    },
+    {
+      "label": "sven",
+      "status": false,
+      "position": 4,
+      "id": 4
+    }
+  ]
+}

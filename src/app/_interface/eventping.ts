@@ -1,4 +1,4 @@
-import { ToPo } from '../_interface/todo'
+import { ToPo } from '../_interface/todo';
 
 export interface EventPing {
     label: string;

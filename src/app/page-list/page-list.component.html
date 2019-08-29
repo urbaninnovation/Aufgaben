@@ -1,13 +1,12 @@
 <app-template-header></app-template-header>
 <div class="list-view">
-  <h4 (click)="ToPoShow=!ToPoShow"> Offen <span>( 4 )</span></h4>
+  <h4 (click)="ToPoShow=!ToPoShow"> Offen <span>( {{$topos.length}} )</span></h4>
   <div *ngIf="ToPoShow" class="todo-elements">
-    <app-template-topo (pinp)="update($event)" [ToPo$]="ToPo" *ngFor="let ToPo of $topos"></app-template-topo>
+    <app-template-topo (ping)="update($event)" [ToPo$]="ToPo" *ngFor="let ToPo of $topos"></app-template-topo>
   </div>
-  <app-template-topo-form></app-template-topo-form>
-  <h4 (click)="ToPoDoneShow=!ToPoDoneShow"> Erledigt <span>( 3 )</span></h4>
+  <app-template-topo-form (ping)="create($event)"></app-template-topo-form>
+  <h4 (click)="ToPoDoneShow=!ToPoDoneShow"> Erledigt <span>(  {{$toposdone.length}} )</span></h4>
   <div *ngIf="ToPoDoneShow" class="todo-elements">
-    <app-template-topo></app-template-topo>
+    <app-template-topo (ping)="update($event)" [ToPo$]="ToPo" *ngFor="let ToPo of $toposdone"></app-template-topo>
   </div>
-
 </div>

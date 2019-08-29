@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import { ToPo } from '../../_interface/todo';
-import { EventPing } from '../../_interface/eventping'
+import { ToPo } from      '../../_interface/todo';
+import { EventPing } from '../../_interface/eventping';
+import { DataService } from '../../_service/data.service';
 
 @Component({
   selector: 'app-template-topo',
@@ -12,11 +13,13 @@ export class TemplateTopoComponent implements OnInit {
     @Input() ToPo$: ToPo;
     @Output() ping: EventEmitter<any> = new EventEmitter<any>();
 
-    constructor() {}
+    constructor(
+        public _dataService: DataService
+    ) {}
 
     ngOnInit() {}
 
-    public changeCheck(event?: any): void{
+    public changeCheck(event?: any): void {
         this.ToPo$.status = !this.ToPo$.status;
         const eventObject: EventPing ={
             label: 'check',
@@ -26,12 +29,26 @@ export class TemplateTopoComponent implements OnInit {
         console.log(this.ToPo$.status);
     }
 
-    public changeLabel(event?: any): void{
-        console.log(this.ToPo$.label);
+    public changeLabel(event?: any): void {
+        const eventObject: EventPing ={
+            label: 'Label',
+            object: this.ToPo$
+        };
+        this.ping.emit(eventObject);
+        console.log(this.ToPo$.status);
     }
 
-    public deleteToPo(event?: any): void{
-        console.log(this.ToPo$.id + 'soll gelöscht werden');
+    public deleteToPo(event?: any): void {
+        this._dataService.deleteToPo(this.ToPo$).subscribe((data: ToPo) => {
+            //console.log('push erstellt');
+            const eventObject: EventPing = {
+                label: 'delete',
+                object: this.ToPo$
+            };
+            this.ping.emit(eventObject);
+        }, error => {
+            console.log(`%cERROR: ${error.message}`, `color: red;`);
+        });
     }
 
 
